@@ -22,7 +22,7 @@ spec:
         image: mehulbisen/catalog:1.0.0
         args: ["-text=catalog service"]
         ports:
-        - containerPort: 5678
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
