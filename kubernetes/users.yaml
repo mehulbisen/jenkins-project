@@ -20,7 +20,6 @@ spec:
       containers:
       - name: users
         image: mehulbisen/users:1.0.0
-        args: ["-text=users service"]
         ports:
         - containerPort: 80
 ---

@@ -20,7 +20,6 @@ spec:
       containers:
       - name: orders
         image: mehulbisen/orders:1.0.0   # or hashicorp/http-echo: latest with args
-        args: ["-text=orders service"]
         ports:
         - containerPort: 80
 ---
