@@ -13,42 +13,49 @@ pipeline {
   stages {
     stage('Build (Maven)') {
       steps {
-        sh 'mvn -B -DskipTests=false clean package'
+        dir('simple-java-app') {
+          sh 'mvn -B -DskipTests=false clean package'
+        }
       }
     }
 
     stage('Build Docker Image') {
       steps {
-        sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+        dir('simple-java-app') {
+          sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+        }
       }
     }
 
     stage('Push to Docker Hub') {
       when { expression { return params.PUSH_TO_DOCKERHUB == true } }
       steps {
-        // Create a Jenkins credential of type "Username with password" with id 'dockerhub'
-        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-          sh '''
-            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-            docker push ${IMAGE_NAME}:${IMAGE_TAG}
-          '''
+        dir('simple-java-app') {
+          withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+            sh '''
+              echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+              docker push ${IMAGE_NAME}:${IMAGE_TAG}
+            '''
+          }
         }
       }
     }
 
     stage('Deploy (run container)') {
       steps {
-        sh '''
-          docker rm -f simple-java-app || true
-          docker run -d --name simple-java-app -p 8081:8080 ${IMAGE_NAME}:${IMAGE_TAG}
-        '''
+        dir('simple-java-app') {
+          sh '''
+            docker rm -f simple-java-app || true
+            docker run -d --name simple-java-app -p 8081:8080 ${IMAGE_NAME}:${IMAGE_TAG}
+          '''
+        }
       }
     }
   }
 
   post {
     always {
-      archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+      archiveArtifacts artifacts: 'simple-java-app/target/*.jar', fingerprint: true
     }
   }
 }
