@@ -1,228 +1,299 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoldenBricks Construction</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #111;
-      color: #ddd;
-    }
-    .navbar {
-      background-color: #000;
-    }
-    .navbar-brand img {
-      height: 55px;
-      margin-right: 10px;
-    }
-    .nav-link {
-      color: #FFD700 !important;
-      font-weight: 500;
-    }
-    .hero {
-      background: url('https://images.unsplash.com/photo-1601933470928-c1c7e3b3a7f6?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      /* Volvo Construction Equipment HD */
-      color: white;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      position: relative;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: #FFD700;
-    }
-    .hero p {
-      font-size: 1.5rem;
-      color: #fff;
-    }
-    .section-title {
-      color: #FFD700;
-      font-weight: bold;
-    }
-    .card {
-      background-color: #1a1a1a;
-      border: none;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-    }
-    .card-title {
-      color: #FFD700;
-    }
-    .btn-custom {
-      background-color: #FFD700;
-      color: #000;
-      font-weight: bold;
-    }
-    footer {
-      background: #000;
-      color: #bbb;
-      padding: 20px 0;
-      text-align: center;
-    }
-    .watermark {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.07;
-      width: 400px;
-      z-index: 0;
-    }
-  </style>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Roboto:wght@400;500;700;900&amp;family=Poppins:wght@400;500;700;900" rel="stylesheet"/>
+<title>Golden Bricks Construction</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #ec9513;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      @keyframes roll-and-disappear {
+        0% {
+          transform: translateX(-150px) scaleX(-1) ;
+          opacity: 1;
+        }
+        45% {
+          transform: translateX(0px) scaleX(-1);
+          opacity: 1;
+        }
+        55% {
+          transform: translateX(0px) scaleX(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(150px) scaleX(1);
+          opacity: 1;
+        }
+      }
+      .animate-fade-in-down {
+        animation: fadeInDown 1s ease-out forwards;
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+        opacity: 0;
+        animation-delay: 0.5s;
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes zoom-pan {
+        0% {
+          transform: scale(1) translate(0, 0);
+        }
+        100% {
+          transform: scale(1.15) translate(-5%, 5%);
+        }
+      }
+      .animated-hero-bg {
+        animation: zoom-pan 20s ease-in-out infinite alternate;
+      }
+    </style>
 </head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="roller-logo.png" alt="GoldenBricks Logo"> GoldenBricks
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <img src="roller-logo.png" alt="GoldenBricks Watermark" class="watermark">
-    <div class="container hero-content">
-      <h1>GoldenBricks Construction</h1>
-      <p class="lead">"We Build It"</p>
-      <a href="#services" class="btn btn-custom btn-lg mt-3">Explore Services</a>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-5">
-    <div class="container text-center">
-      <h2 class="section-title mb-4">About Us</h2>
-      <p>
-        At GoldenBricks Construction, we transform dreams into reality with modern, sustainable, and
-        quality construction. We specialize in residential, commercial, and infrastructure projects.
-      </p>
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <h5 class="text-warning">Managing Director</h5>
-          <p><b>Sameer Bisen</b><br>📞 7666287303</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-warning">Managing Director</h5>
-          <p><b>Pranay Sorte</b><br>📞 9309587702</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-warning">Address</h5>
-          <p>Kamal Niwas, G-Floor, Tukum,<br> Chandrapur - 442401</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-5 bg-dark">
-    <div class="container">
-      <h2 class="section-title text-center mb-5">Our Services</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card shadow-sm">
-            <img src="https://images.unsplash.com/photo-1604014237800-1c9e6a31c8b1?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Residential Projects">
-            <div class="card-body">
-              <h5 class="card-title">Residential Projects</h5>
-              <p class="card-text">Modern, sustainable, and elegant homes tailored to your lifestyle.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card shadow-sm">
-            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Commercial Projects">
-            <div class="card-body">
-              <h5 class="card-title">Commercial Buildings</h5>
-              <p class="card-text">Iconic commercial landmarks that inspire success and innovation.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card shadow-sm">
-            <img src="https://images.unsplash.com/photo-1603575448360-9bcb35c0a35b?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="CAT Caterpillar Infrastructure">
-            <div class="card-body">
-              <h5 class="card-title">Infrastructure</h5>
-              <p class="card-text">Reliable infrastructure with heavy-duty CAT equipment that strengthens communities and economies.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clients Section -->
-  <section id="clients" class="py-5">
-    <div class="container text-center">
-      <h2 class="section-title mb-4">Our Valuable Clients</h2>
-      <div id="clientCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="maharashtra-govt-logo.png" class="d-block mx-auto" alt="Maharashtra Govt" style="height:150px;">
-            <h5 class="mt-3">Maharashtra Govt</h5>
-          </div>
-          <div class="carousel-item">
-            <img src="gogas-logo.png" class="d-block mx-auto" alt="Gogas" style="height:150px;">
-            <h5 class="mt-3">Gogas</h5>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#clientCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#clientCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-5">
-    <div class="container text-center">
-      <h2 class="section-title mb-4">Get in Touch</h2>
-      <p>Looking to build with us? Let's connect today!</p>
-      <a href="mailto:info@goldenbricks.com" class="btn btn-custom btn-lg">Contact Us</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 GoldenBricks Construction. All Rights Reserved.</p>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<body class="bg-gray-900 text-gray-200" style='font-family: "Poppins", "Roboto", sans-serif;'>
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden group/design-root">
+<header class="bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-lg shadow-yellow-500/10">
+<div class="container mx-auto px-6 py-3 flex items-center justify-between">
+<a class="flex items-center gap-3 text-gray-900" href="#">
+<div class="w-12 h-12">
+<svg class="w-full h-full" viewBox="0 0 100 100">
+<g transform="translate(50, 50)">
+<g transform="scale(2.5)">
+<rect fill="var(--primary-color)" height="12" rx="2" width="25" x="-12" y="-10"></rect>
+<circle cx="-6" cy="5" fill="#fff" r="4"></circle>
+<circle cx="6" cy="5" fill="#fff" r="4"></circle>
+<rect fill="var(--primary-color)" height="8" width="5" x="-2.5" y="-18"></rect>
+<path d="M-2.5 -18 h5 v-3 a1 1 0 0 0 -1 -1 h-3 a1 1 0 0 0 -1 1 z" fill="var(--primary-color)"></path>
+</g>
+</g>
+</svg>
+</div>
+<h2 class="text-2xl font-bold tracking-normal text-yellow-400">Golden Bricks Construction</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#">Home</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#about">About Us</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#services">Our Services</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#clients">Clients</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#equipment">Equipment</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#contact">Contact</a>
+</nav>
+<a class="hidden md:inline-flex items-center justify-center rounded-lg h-12 px-8 bg-[var(--primary-color)] text-white text-base font-bold shadow-lg hover:bg-opacity-90 transition-all duration-300" href="#">
+            Get a Quote
+          </a>
+<button class="md:hidden text-gray-200">
+<span class="material-symbols-outlined text-4xl">
+              menu
+            </span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<section class="relative h-[calc(100vh-80px)] min-h-[650px] flex items-center justify-center text-white overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+<video autoplay="" class="absolute inset-0 w-full h-full object-cover z-0" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260">
+<source src="https://videos.pexels.com/video-files/853873/853873-hd_1920_1080_25fps.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+</div>
+<div class="relative text-center px-6 z-20">
+<h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 animate-fade-in-down" style="text-shadow: 3px 3px 10px rgba(0,0,0,0.6)">
+              We Build It.
+            </h1>
+<p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-100 mb-10 animate-fade-in-up font-light">
+              Leading the way in construction with quality, integrity, and a commitment to building your vision.
+            </p>
+<a class="inline-flex items-center justify-center rounded-lg h-14 px-10 bg-[var(--primary-color)] text-white text-lg font-bold shadow-xl hover:bg-opacity-90 transform hover:scale-105 transition-all duration-300" href="#about">
+              Learn More
+            </a>
+</div>
+</section>
+<section class="py-24 bg-gray-950" id="services">
+<div class="container mx-auto px-6">
+<div class="text-center mb-20">
+<h2 class="text-5xl font-bold text-white">Our Services</h2>
+<p class="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">We offer a wide range of construction services to meet the diverse needs of our clients. Our expertise ensures quality and satisfaction from start to finish.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+<div class="bg-gray-900 p-10 rounded-xl shadow-lg hover:shadow-yellow-500/20 transition-shadow duration-300 transform hover:-translate-y-2">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-8">
+<span class="material-symbols-outlined text-4xl">domain</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Commercial Building</h3>
+<p class="text-gray-400 leading-relaxed text-base">From office complexes to retail centers, we deliver high-quality commercial construction projects on time and within budget.</p>
+</div>
+<div class="bg-gray-900 p-10 rounded-xl shadow-lg hover:shadow-yellow-500/20 transition-shadow duration-300 transform hover:-translate-y-2">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-8">
+<span class="material-symbols-outlined text-4xl">home_work</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Residential Construction</h3>
+<p class="text-gray-400 leading-relaxed text-base">Building dream homes with attention to detail and craftsmanship, ensuring comfort, safety, and lasting value.</p>
+</div>
+<div class="bg-gray-900 p-10 rounded-xl shadow-lg hover:shadow-yellow-500/20 transition-shadow duration-300 transform hover:-translate-y-2">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-8">
+<span class="material-symbols-outlined text-4xl">engineering</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Renovation &amp; Remodeling</h3>
+<p class="text-gray-400 leading-relaxed text-base">Transforming and upgrading existing spaces to enhance functionality and aesthetic appeal with modern solutions.</p>
+</div>
+<div class="bg-gray-900 p-10 rounded-xl shadow-lg hover:shadow-yellow-500/20 transition-shadow duration-300 transform hover:-translate-y-2">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-8">
+<span class="material-symbols-outlined text-4xl">foundation</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Foundation Work</h3>
+<p class="text-gray-400 leading-relaxed text-base">Providing solid and reliable foundation solutions that form the backbone of any sturdy and durable structure.</p>
+</div>
+<div class="bg-gray-900 p-10 rounded-xl shadow-lg hover:shadow-yellow-500/20 transition-shadow duration-300 transform hover:-translate-y-2">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-8">
+<span class="material-symbols-outlined text-4xl">construction</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Site Preparation</h3>
+<p class="text-gray-400 leading-relaxed text-base">Comprehensive site preparation services, including excavation, grading, and utility installation for a smooth project start.</p>
+</div>
+<div class="bg-gray-900 p-10 rounded-xl shadow-lg hover:shadow-yellow-500/20 transition-shadow duration-300 transform hover:-translate-y-2">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-8">
+<span class="material-symbols-outlined text-4xl">gavel</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">General Contracting</h3>
+<p class="text-gray-400 leading-relaxed text-base">Overseeing every aspect of your project with meticulous project management, ensuring seamless execution and delivery.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-900" id="clients">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-5xl font-bold text-white">Our Valued Clients</h2>
+<p class="text-gray-400 mt-4 text-lg">We are proud to partner with industry leaders.</p>
+</div>
+<div class="flex justify-center items-center gap-20 flex-wrap">
+<div class="flex flex-col items-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="GoGas Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ-mDA6k1abvT_-2OPSJQhM4CNbtzsmNDdiOJ-_lCjvCpOJj7DPNBH5XZqbUAX7uoQWKjmI-q1StceQsx0zVPrU8-zjq-WWy-S8-Ces9Cc-ZLjzNjt1Mw4-hZLF4nR0d4LGHsBoVcB1nUAI02OXk_1JmZZxDDL3nRZPiSfBnIpOma_v-2OBGSAqG4H2hnddAX2Ywe4th9G_JT8CRlfodRmumX-3Xss3Y5s1qmYOPN1mmeQcWdGkZ9yJEYPDBJj34atQNFPxnJe9_rB"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl">GoGas</p>
+</div>
+<div class="flex flex-col items-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="Government of Maharashtra Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSrFuLmQc6c3BS3NAzSEmj49pTzVRW6BEj1nrBAMMxs0qYXg3k4g7GZp4PGtzFV41kCj-LN8SaVUW34AKGYYTJjO8lUF6AVL8F2Gpp440JilG0DbNV4F6mxV5wKVWyF6ve-4_mCO8ONl7Jvi6P4SV_rhDCZ43uGnAHMp7L81nlIgj2mzIBAXfi9oS8Su63bWv1On0EpjTQRQ1jfdfJE9MWROAOH_pQP3XaOdTIZdB74VIbKBEDZfGhdheXVc0RZsf3HtHz44JVdNGn"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl">Government of Maharashtra</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-950" id="about">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-5xl font-bold text-white">About Us</h2>
+</div>
+<div class="max-w-4xl mx-auto text-center text-gray-400 text-lg leading-relaxed mb-16">
+<p>
+                Golden Bricks Construction is a premier construction firm dedicated to excellence in every project. With a focus on quality, innovation, and client satisfaction, we deliver exceptional results across various sectors. Our experienced team ensures seamless execution from concept to completion, making us a trusted partner in building your vision.
+              </p>
+</div>
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-white">Managing Directors</h3>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="bg-gray-900 p-10 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-transform duration-300">
+<div class="w-28 h-28 rounded-full mx-auto mb-6 bg-cover bg-center ring-4 ring-gray-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDR0zqXTX_JOe_effSF4hZz4cySXYN7_QosOrVBDEbwXOOQFWjH895xpxD9WVe1QpI34hujZv2dgGeC7nJfH8FDqK4eG0IzapwCUrlRq_Cen9gofS_oi9AOjWz9TD30UArYFDDsnKaccx0fCYpVuRaAZCek9Dz3IAYYYew9gSBbicrmTRCCxqYc0XD6DF3d7Zx94QtsVZS05R4MiiiUwenB7pM9FJIsaOTPhvtQobWAQnmygDxAKMB9yttJ2zFWj3_HJKDE0p7ZNho_");'></div>
+<h4 class="text-2xl font-bold text-white">Sameer Bisen</h4>
+<p class="text-gray-500 mt-2 text-base">Contact: 7666287303</p>
+</div>
+<div class="bg-gray-900 p-10 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-transform duration-300">
+<div class="w-28 h-28 rounded-full mx-auto mb-6 bg-cover bg-center ring-4 ring-gray-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1e42g-blmrNHH0HfdqI_5WdULcrN3QFJeSraHkAv5iI_ZQhmmctUkV7_x62mW17ZssjjXv6KbvR5HzxfnMnmU1S_xe1zopV89butIpj_jl52BVZbG14ve5IpWFkMclfLBHfLV9lzwgxtkoa3a1Qorlho11HZIMud0e7ry924qk-7fO2C_0TSb5irb25aBq9q2-xqnMJ0HOnX38wa9_0BUgG6LMf2O2run0LyOv6A1v6ZheOLEhn9uPA0djmCqOP0MTTRSkEEwghgJ");'></div>
+<h4 class="text-2xl font-bold text-white">Pranay Sorte</h4>
+<p class="text-gray-500 mt-2 text-base">Contact: 9309587702</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-900" id="equipment">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-5xl font-bold text-white">Our Equipment</h2>
+<p class="text-gray-400 mt-4 text-lg">State-of-the-art machinery for superior results.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="group overflow-hidden rounded-xl shadow-lg">
+<img alt="Excavator at a construction site" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Q34QicxKFoBJW4Qo7UX-InBW_RgMwl0WQDBVRhOQqUjwH3jNFiXw3C6UKslCsyxzJ_xNw-JYL41aKHfGccCw4t5dxRcymQa2UWKCgPa2IdR-ubRb5XyNbPjnQJ5CGBLMP95XIIbUHopkESefkTbpGZ5VooE0swR4gx8twmFoLaHRo8hLKDKgLEatHOGfoS5SvTXvXNvUJfAvzoXemk4STjT5Cf1IyxDNJ_m860crvjkOiDpIReUIT0zNUnA235Rm1NpGKVUjW1hp"/>
+</div>
+<div class="group overflow-hidden rounded-xl shadow-lg">
+<img alt="Bulldozer on a construction site" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVmpfMd8QUIc6NwmThDrNMOTNY7egiNyyvvdKpzNXIBTBH-JpvgHVOluadMNeBoyJRKb_HWZCzhpDUR9PIoOfsjtttxlaetT9Gv17735wcCHUGBgwFixdD9ybekRlgEpMhqdyQGnVaTjTfB87NYveQaH047wCjvzzTLZRmKJZi515-NqdgZF4DsgB4MsThl8Gf9gsqhY2cFPjHnoBEyT7Ee_PhABRqIXs140QfgrnS7GsWUfVkI11cFwWZdOgMz5MS6afuf_vpXHdD"/>
+</div>
+<div class="group overflow-hidden rounded-xl shadow-lg md:col-span-2 lg:col-span-1">
+<img alt="Crane lifting materials" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB3agdK8vqzPITJ_OPhfONNW4IwpDFIM_7QGOEcASl4oL1Ire_yGzIkX-ZyWzyAdafkZRSKr6vmX84UA22BZKwG3ao3bW1V14uE7x71zM1BORFhagpfhqdA90CKVjV-mrTHs8uuHrSjtmQm9Fp2aIdPx9BPNJSsRmFA7Pql9Dsf2EZEcSs0ApCBU9GzE7k3vdcqN0YYyP9hN-odwEge79cMDvNC4cqmrUXFXzunUtOYbSv1GYal-TiPy8qdTZbq3SQoGCnGggZLaAS"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-950 text-white border-t border-gray-800" id="contact">
+<div class="container mx-auto px-6 py-16">
+<div class="grid md:grid-cols-3 gap-12">
+<div>
+<h3 class="text-2xl font-bold mb-4 text-yellow-400">Golden Bricks Construction</h3>
+<p class="text-gray-400">Building the future, one brick at a time.</p>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Quick Links</h3>
+<ul class="space-y-3">
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#">Home</a></li>
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#about">About Us</a></li>
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#services">Our Services</a></li>
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#clients">Clients</a></li>
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#equipment">Equipment</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Contact Us</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<span class="material-symbols-outlined text-gray-400 mt-1 mr-3">place</span>
+<p class="text-gray-400">Kamal Niwas, G-Floor, Tukum, Chandrapur-442401</p>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-gray-400 mr-3">email</span>
+<a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="mailto:goldenbricksconstruction01@gmail.com">goldenbricksconstruction01@gmail.com</a>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-gray-400 mr-3">call</span>
+<a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="tel:7666287303">7666287303</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500">
+<p>© 2024 Golden Bricks Construction. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
