@@ -46,7 +46,7 @@ pipeline {
         dir('simple-java-app') {
           sh '''
             docker rm -f simple-java-app || true
-            docker run -d --name simple-java-app -p 8081:8080 ${IMAGE_NAME}:${IMAGE_TAG}
+            docker run -d --name simple-java-app -p 8085:8080 ${IMAGE_NAME}:${IMAGE_TAG}
           '''
         }
       }
