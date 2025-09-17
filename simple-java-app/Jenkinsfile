@@ -11,13 +11,6 @@ pipeline {
   }
 
   stages {
-    stage('Checkout') {
-      steps {
-        // if job configured with SCM this is redundant; else fix URL
-        git url: 'https://github.com/mehulbisen/jenkins-project.git', branch: 'main'
-      }
-    }
-
     stage('Build (Maven)') {
       steps {
         sh 'mvn -B -DskipTests=false clean package'
