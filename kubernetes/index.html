@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Roboto:wght@400;500;700;900&amp;family=Poppins:wght@400;500;700;900" rel="stylesheet"/>
+<title>Golden Bricks Construction</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #ec9513;
+    }
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .parallax-bg {
+      background-image: url('https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .animate-fade-in-down {
+      animation: fadeInDown 1s ease-out forwards;
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.5s;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-280px * 6));}
+    }
+    .scrolling-wrapper {
+      animation: scroll 40s linear infinite;
+      display: flex;
+      width: calc(280px * 12);}
+    .modal-open {
+        overflow: hidden;
+    }
+    .modal {
+        display: none;
+    }
+    .modal.is-open {
+        display: flex;
+    }
+    .success-message {
+        display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-200" style='font-family: "Poppins", "Roboto", sans-serif;'>
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden group/design-root">
+<header class="bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-lg shadow-yellow-500/10">
+  <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+    <a class="flex items-center gap-3 text-gray-900" href="#">
+      <img src="logo.png" alt="Golden Bricks Logo" class="h-12 w-auto">
+      <h2 class="text-2xl font-bold tracking-normal text-yellow-400">Golden Bricks Construction</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#">Home</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#about">About Us</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#services">Our Services</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#clients">Clients</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#equipment">Equipment</a>
+<a class="text-base text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300" href="#contact">Contact</a>
+</nav>
+<button class="hidden md:inline-flex items-center justify-center rounded-lg h-12 px-8 bg-[var(--primary-color)] text-white text-base font-bold shadow-lg hover:bg-opacity-90 transition-all duration-300" id="open-modal-button"> Get a Quote </button>
+<button class="md:hidden text-gray-200">
+<span class="material-symbols-outlined text-4xl"> menu </span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<section class="relative h-[calc(100vh-80px)] min-h-[650px] flex items-center justify-center text-white overflow-hidden parallax-bg">
+<div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+<div class="relative text-center px-6 z-20">
+<h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 animate-fade-in-down" style="text-shadow: 3px 3px 10px rgba(0,0,0,0.6)"> We Build It. </h1>
+<p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-100 mb-10 animate-fade-in-up font-light"> Leading the way in construction with quality, integrity, and a commitment to building your vision. </p>
+<a class="inline-flex items-center justify-center rounded-lg h-14 px-10 bg-[var(--primary-color)] text-white text-lg font-bold shadow-xl hover:bg-opacity-90 transform hover:scale-105 transition-all duration-300" href="#about"> Learn More </a>
+</div>
+</section>
+<section class="py-24 bg-gray-950" id="services">
+<div class="container mx-auto px-6">
+<div class="text-center mb-20">
+<h2 class="text-5xl font-bold text-white tracking-tight">Our Comprehensive Services</h2>
+<p class="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">From initial design to final execution, we provide a full spectrum of construction services tailored to your needs.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="group relative overflow-hidden rounded-xl bg-gray-900 shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-2">
+<div class="p-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">domain</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">Commercial Building</h3>
+<p class="text-gray-400 leading-relaxed text-base">We construct state-of-the-art office spaces and retail centers, focusing on functionality and modern design.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-gray-900 shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-2">
+<div class="p-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">home_work</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">Residential Construction</h3>
+<p class="text-gray-400 leading-relaxed text-base">Crafting beautiful and durable homes with meticulous attention to detail and superior craftsmanship.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-gray-900 shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-2">
+<div class="p-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">add_road</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">Roads and Drainage</h3>
+<p class="text-gray-400 leading-relaxed text-base">Engineering robust road networks and effective drainage systems for long-lasting infrastructure.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-gray-900 shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-2">
+<div class="p-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">foundation</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">Foundation Work</h3>
+<p class="text-gray-400 leading-relaxed text-base">Building solid foundations that guarantee the stability and longevity of your structures.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-gray-900 shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-2">
+<div class="p-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">construction</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">Site Preparation</h3>
+<p class="text-gray-400 leading-relaxed text-base">Expert site preparation services, including excavation, grading, and utility setup for a seamless project kickoff.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-gray-900 shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-2">
+<div class="p-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">gavel</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">General Contracting</h3>
+<p class="text-gray-400 leading-relaxed text-base">Comprehensive project management, ensuring your vision is realized efficiently and to the highest standards.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-gray-900 shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-2">
+<div class="p-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">view_in_ar</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">3D &amp; Layout Planning</h3>
+<p class="text-gray-400 leading-relaxed text-base">Utilizing cutting-edge 3D modeling and layout planning to bring your project to life with precision.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-gray-900 shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-2">
+<div class="p-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">solar_power</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">End to End Solar Solutions</h3>
+<p class="text-gray-400 leading-relaxed text-base">Complete solar power solutions, from design to installation, for sustainable and efficient energy.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-gray-900 shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-2">
+<div class="p-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-[var(--primary-color)] text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">plumbing</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">MEP Solutions</h3>
+<p class="text-gray-400 leading-relaxed text-base">Integrated Mechanical, Electrical, and Plumbing services for optimal building performance and reliability.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-900" id="clients">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-5xl font-bold text-white">Our Valued Clients</h2>
+<p class="text-gray-400 mt-4 text-lg">We are proud to partner with industry leaders.</p>
+</div>
+<div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+<div class="scrolling-wrapper">
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="GoGas Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ-mDA6k1abvT_-2OPSJQhM4CNbtzsmNDdiOJ-_lCjvCpOJj7DPNBH5XZqbUAX7uoQWKjmI-q1StceQsx0zVPrU8-zjq-WWy-S8-Ces9Cc-ZLjzNjt1Mw4-hZLF4nR0d4LGHsBoVcB1nUAI02OXk_1JmZZxDDL3nRZPiSfBnIpOma_v-2OBGSAqG4H2hnddAX2Ywe4th9G_JT8CRlfodRmumX-3Xss3Y5s1qmYOPN1mmeQcWdGkZ9yJEYPDBJj34atQNFPxnJe9_rB"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">GoGas</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="Government of Maharashtra Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSrFuLmQc6c3BS3NAzSEmj49pTzVRW6BEj1nrBAMMxs0qYXg3k4g7GZp4PGtzFV41kCj-LN8SaVUW34AKGYYTJjO8lUF6AVL8F2Gpp440JilG0DbNV4F6mxV5wKVWyF6ve-4_mCO8ONl7Jvi6P4SV_rhDCZ43uGnAHMp7L81nlIgj2mzIBAXfi9oS8Su63bWv1On0EpjTQRQ1jfdfJE9MWROAOH_pQP3XaOdTIZdB74VIbKBEDZfGhdheXVc0RZsf3HtHz44JVdNGn"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">Government of Maharashtra</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="Public Work Department Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAinDU7HLogRpKftnUYVkXux0a5Rv51rt1hH6h5J8wDAhS8PAurgwiwS551KqEmrHPzO32WBGf3nW1oAuHTC5UBf1whaf31vbPLkWmhX6Kdc9fJGrG9rHodziEQ6uPAdpQrFExUL34_91c1Q-6lk19ad_PpEaruq35Z6Ba0rd7NSar8q1Evjsac3vzJ5iRtZhx4mfhiZhBdML0wCoH1X5iEDeVaKL4IVIckk2IY2Ew2LjVcCbpUuYFgMhPfurjM6apHqhelm9niuALA"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">Public Work Department</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="Zilla Parishad Logo" class="h-auto w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-P96vY78urh8BMEL35ozCiHu4RT8EEsl_Nf4ZzsLvndlkl9u3rEu5GQapPgKephFdRLMjEpaoAoICCx5XbG7VVfPtkKLH9WVYplUVxNax7nPFiQbSgt6PSu9ynaateCAT2LWQs3yd2TQBjYISElGZsX78aH60DcBKXomn-uL579-DyFRRyoiYBsRFBUKXqiZBXKPJsvgj-6U44goz4MJCSqD1kwjmTciTON2OFW_WvWxvW8csAS0GRjnvBl26BSeyY4fnxE4QdqA6"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">Zilla Parishad</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="La Fiesta Resort Logo" class="h-auto w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgeSLOTld48OWYV9dbQaYw50rE4cz8NcoozbU98xuQzttICyxej6KbwSOotHzxqdPSBWqJvojD9YHpFYdq0_EtfEY5JJqNRyrxCBAXFCsSpngd0655SMzwu6x53xPJNR-_hupnqVyyBlcXoqmGVtnQwU5lK659eyiUHSrPBBKVxGkvmAFYXutIYPrsdlfX-DeqrG5aQaFDpiD8UJzwEqQpPNheEJKjSkuRBfrnRWHD5pR0SotZoGYBIYmALJw9J2UIVZWJZ1dhn5N8"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">La Fiesta Resort</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="Govind Group Logo" class="h-auto w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiCaZK4virbTp8LyLWwJjCcwghkbPjZDSgvQL1pQ8RLcbgZt1DXdwspqgR6R39KCK71Y_iLIL_bpJKnOOhq54TTFJOjmwIHKN7YkoVAm23k5g2DrL-sjPHJUOSVSPxb_9yuNtbBNfRJQyO_SkxvFzS7tJUGxjXgEmQByeEsM1A88ddq_THeSgXEFVqhszFuxH0dMUWRf6EEjXcpZnQChcWr14GMaW_H6ohGScASlq8MNIQmGzOWuPKPqPtjP1jBClqwIYOYJ90IfWT"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">Govind Group</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="GoGas Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ-mDA6k1abvT_-2OPSJQhM4CNbtzsmNDdiOJ-_lCjvCpOJj7DPNBH5XZqbUAX7uoQWKjmI-q1StceQsx0zVPrU8-zjq-WWy-S8-Ces9Cc-ZLjzNjt1Mw4-hZLF4nR0d4LGHsBoVcB1nUAI02OXk_1JmZZxDDL3nRZPiSfBnIpOma_v-2OBGSAqG4H2hnddAX2Ywe4th9G_JT8CRlfodRmumX-3Xss3Y5s1qmYOPN1mmeQcWdGkZ9yJEYPDBJj34atQNFPxnJe9_rB"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">GoGas</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="Government of Maharashtra Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSrFuLmQc6c3BS3NAzSEmj49pTzVRW6BEj1nrBAMMxs0qYXg3k4g7GZp4PGtzFV41kCj-LN8SaVUW34AKGYYTJjO8lUF6AVL8F2Gpp440JilG0DbNV4F6mxV5wKVWyF6ve-4_mCO8ONl7Jvi6P4SV_rhDCZ43uGnAHMp7L81nlIgj2mzIBAXfi9oS8Su63bWv1On0EpjTQRQ1jfdfJE9MWROAOH_pQP3XaOdTIZdB74VIbKBEDZfGhdheXVc0RZsf3HtHz44JVdNGn"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">Government of Maharashtra</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="Public Work Department Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAinDU7HLogRpKftnUYVkXux0a5Rv51rt1hH6h5J8wDAhS8PAurgwiwS551KqEmrHPzO32WBGf3nW1oAuHTC5UBf1whaf31vbPLkWmhX6Kdc9fJGrG9rHodziEQ6uPAdpQrFExUL34_91c1Q-6lk19ad_PpEaruq35Z6Ba0rd7NSar8q1Evjsac3vzJ5iRtZhx4mfhiZhBdML0wCoH1X5iEDeVaKL4IVIckk2IY2Ew2LjVcCbpUuYFgMhPfurjM6apHqhelm9niuALA"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">Public Work Department</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="Zilla Parishad Logo" class="h-auto w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD4OHrxzGe9j9ekGv8q6-FcZRlJh9UkaARrrOnWSG2ctEJUHO-N2Q0vxePztz_skNFwu_D1TCL4FG8zzw0_RoH_bMINwv5-lGCEjJfecxozofa8wuRFp0OMLocPhEiKfqb__OwmE6lglx1N5Bb99bUHTsHyaswA-zrtVGd-4XgU3ow7jL-MrTso7y2G2E6YhcdCyntIqr6GHLNe0F9mGUieKs7P2bB_MKxDv0s9o7QOpHb6TKq79Pv5K-noVUKQoyIn4vsv0wbqZAn"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">Zilla Parishad</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="La Fiesta Resort Logo" class="h-auto w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmZUfhSC07lONtRez-Mc7qwItKZddwTJX1rD5la-V-EKVreP9u73AbN1y4lGL27UIRdt3KHGD_VuGQflAsIm_IJt8GoVSCT0hfJVlwHSZKhYytThGc8eKOwDswoEOi9TsF9B5wWrqwGUixqwxC39d7zFVsGjJ_oBHjMcmRIQWht5gCQowUzCOAbST5dYAtRPBiWbPs8OLR81CEYVJyBC6rkSEQj0m3hR8-5hhTj02EyR-nRpeNJTiiqJNZGyztaEJh_4jd8rUl4MZM"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">La Fiesta Resort</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-4 flex flex-col items-center justify-center gap-6 group">
+<div class="h-32 w-32 bg-white rounded-lg p-4 flex items-center justify-center">
+<img alt="Govind Group Logo" class="h-auto w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ-l6XSEbyeJidY5pACN8BOHRHROSsjLfzTTcZJvtpTdII3wLhuQuYrG4B-qzy_tWFQMe3F6wy7GLU-fGbGh-Yz87cDCyRU-6Cy58Kcy0p8JR2X16caojxN4pxInTeefnZfttl-pRbrnHIpIJ72E7r48MHDPE7lCeSSHt1bQQXIT1bygHVLKbjV6DambXhp8s2s4AwP-G4KN-ANfnJsNChcMxfEGV0wFEoSs8YXEreplommQgF1VIqBIu_l-4hSxqAMpbMRVWy0U6X"/>
+</div>
+<p class="text-gray-300 font-semibold text-xl text-center">Govind Group</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-950" id="about">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-5xl font-bold text-white">About Us</h2>
+</div>
+<div class="max-w-4xl mx-auto text-center text-gray-400 text-lg leading-relaxed mb-16">
+<p> Golden Bricks Construction is a premier construction firm dedicated to excellence in every project. With a focus on quality, innovation, and client satisfaction, we deliver exceptional results across various sectors. Our experienced team ensures seamless execution from concept to completion, making us a trusted partner in building your vision. </p>
+</div>
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-white">Managing Directors</h3>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="bg-gray-900 p-10 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-transform duration-300">
+<div class="w-28 h-28 rounded-full mx-auto mb-6 bg-cover bg-center ring-4 ring-gray-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDR0zqXTX_JOe_effSF4hZz4cySXYN7_QosOrVBDEbwXOOQFWjH895xpxD9WVe1QpI34hujZv2dgGeC7nJfH8FDqK4eG0IzapwCUrlRq_Cen9gofS_oi9AOjWz9TD30UArYFDDsnKaccx0fCYpVuRaAZCek9Dz3IAYYYew9gSBbicrmTRCCxqYc0XD6DF3d7Zx94QtsVZS05R4MiiiUwenB7pM9FJIsaOTPhvtQobWAQnmygDxAKMB9yttJ2zFWj3_HJKDE0p7ZNho_");'></div>
+<h4 class="text-2xl font-bold text-white">Sameer Bisen</h4>
+<p class="text-gray-500 mt-2 text-base">Contact: 7666287303</p>
+</div>
+<div class="bg-gray-900 p-10 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-transform duration-300">
+<div class="w-28 h-28 rounded-full mx-auto mb-6 bg-cover bg-center ring-4 ring-gray-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1e42g-blmrNHH0HfdqI_5WdULcrN3QFJeSraHkAv5iI_ZQhmmctUkV7_x62mW17ZssjjXv6KbvR5HzxfnMnmU1S_xe1zopV89butIpj_jl52BVZbG14ve5IpWFkMclfLBHfLV9lzwgxtkoa3a1Qorlho11HZIMud0e7ry924qk-7fO2C_0TSb5irb25aBq9q2-xqnMJ0HOnX38wa9_0BUgG6LMf2O2run0LyOv6A1v6ZheOLEhn9uPA0djmCqOP0MTTRSkEEwghgJ");'></div>
+<h4 class="text-2xl font-bold text-white">Pranay Sorte</h4>
+<p class="text-gray-500 mt-2 text-base">Contact: 9309587702</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-900" id="equipment">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-5xl font-bold text-white">Our Equipment</h2>
+<p class="text-gray-400 mt-4 text-lg">State-of-the-art machinery for superior results.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="group overflow-hidden rounded-xl shadow-lg">
+<img alt="Excavator at a construction site" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Q34QicxKFoBJW4Qo7UX-InBW_RgMwl0WQDBVRhOQqUjwH3jNFiXw3C6UKslCsyxzJ_xNw-JYL41aKHfGccCw4t5dxRcymQa2UWKCgPa2IdR-ubRb5XyNbPjnQJ5CGBLMP95XIIbUHopkESefkTbpGZ5VooE0swR4gx8twmFoLaHRo8hLKDKgLEatHOGfoS5SvTXvXNvUJfAvzoXemk4STjT5Cf1IyxDNJ_m860crvjkOiDpIReUIT0zNUnA235Rm1NpGKVUjW1hp"/>
+</div>
+<div class="group overflow-hidden rounded-xl shadow-lg">
+<img alt="Bulldozer on a construction site" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVmpfMd8QUIc6NwmThDrNMOTNY7egiNyyvvdKpzNXIBTBH-JpvgHVOluadMNeBoyJRKb_HWZCzhpDUR9PIoOfsjtttxlaetT9Gv17735wcCHUGBgwFixdD9ybekRlgEpMhqdyQGnVaTjTfB87NYveQaH047wCjvzzTLZRmKJZi515-NqdgZF4DsgB4MsThl8Gf9gsqhY2cFPjHnoBEyT7Ee_PhABRqIXs140QfgrnS7GsWUfVkI11cFwWZdOgMz5MS6afuf_vpXHdD"/>
+</div>
+<div class="group overflow-hidden rounded-xl shadow-lg md:col-span-2 lg:col-span-1">
+<img alt="Crane lifting materials" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB3agdK8vqzPITJ_OPhfONNW4IwpDFIM_7QGOEcASl4oL1Ire_yGzIkX-ZyWzyAdafkZRSKr6vmX84UA22BZKwG3ao3bW1V14uE7x71zM1BORFhagpfhqdA90CKVjV-mrTHs8uuHrSjtmQm9Fp2aIdPx9BPNJSsRmFA7Pql9Dsf2EZEcSs0ApCBU9GzE7k3vdcqN0YYyP9hN-odwEge79cMDvNC4cqmrUXFXzunUtOYbSv1GYal-TiPy8qdTZbq3SQoGCnGggZLaAS"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-950 text-white border-t border-gray-800" id="contact">
+<div class="container mx-auto px-6 py-16">
+<div class="grid md:grid-cols-3 gap-12">
+<div>
+<h3 class="text-2xl font-bold mb-4 text-yellow-400">Golden Bricks Construction</h3>
+<p class="text-gray-400">Building the future, one brick at a time.</p>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Quick Links</h3>
+<ul class="space-y-3">
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#">Home</a></li>
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#about">About Us</a></li>
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#services">Our Services</a></li>
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#clients">Clients</a></li>
+<li><a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="#equipment">Equipment</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Contact Us</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<span class="material-symbols-outlined text-gray-400 mt-1 mr-3">place</span>
+<p class="text-gray-400">Kamal Niwas, G-Floor, Tukum, Chandrapur-442401</p>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-gray-400 mr-3">email</span>
+<a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="mailto:goldenbricksconstruction01@gmail.com">goldenbricksconstruction01@gmail.com</a>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-gray-400 mr-3">call</span>
+<div>
+<a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="tel:7666287303">7666287303</a>
+<span class="text-gray-400 mx-2">|</span>
+<a class="text-gray-400 hover:text-yellow-400 transition-colors duration-300" href="tel:9309587702">9309587702</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500">
+<p>© 2024 Golden Bricks Construction. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<div class="modal fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm p-4" id="quote-modal">
+<div class="bg-gray-900 rounded-xl shadow-2xl w-full max-w-lg mx-auto transform transition-all duration-300 ease-out scale-95" id="modal-content">
+<div class="p-8">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-3xl font-bold text-white">Get a Free Quote</h2>
+<button class="text-gray-400 hover:text-white transition-colors duration-300" id="close-modal-button">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<form action="#" class="space-y-4" id="quote-form" novalidate="">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-2" for="name">Name</label>
+<input class="w-full bg-gray-800 border-gray-700 text-white rounded-lg focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition duration-300 px-4 py-3" id="name" name="name" placeholder="Enter your name" required="" type="text"/>
+<p class="text-red-500 text-sm mt-1 hidden" id="name-error">Name is required.</p>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-2" for="email">Email</label>
+<input class="w-full bg-gray-800 border-gray-700 text-white rounded-lg focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition duration-300 px-4 py-3" id="email" name="email" placeholder="Enter your email address" required="" type="email"/>
+<p class="text-red-500 text-sm mt-1 hidden" id="email-error">Please enter a valid email address.</p>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-2" for="phone">Phone Number</label>
+<input class="w-full bg-gray-800 border-gray-700 text-white rounded-lg focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition duration-300 px-4 py-3" id="phone" name="phone" placeholder="Enter your phone number" required="" type="tel"/>
+<p class="text-red-500 text-sm mt-1 hidden" id="phone-error">Phone number is required.</p>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-2" for="comments">Comments</label>
+<textarea class="w-full bg-gray-800 border-gray-700 text-white rounded-lg focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition duration-300 px-4 py-3" id="comments" name="comments" placeholder="Tell us about your project..." required="" rows="4"></textarea>
+<p class="text-red-500 text-sm mt-1 hidden" id="comments-error">Comments are required.</p>
+</div>
+<div class="flex justify-end items-center gap-4 pt-2">
+<button class="text-gray-400 hover:text-white font-medium px-6 py-2 rounded-lg transition-colors duration-300" id="cancel-modal-button" type="button">Cancel</button>
+<button class="w-auto flex items-center justify-center rounded-lg h-12 px-8 bg-[var(--primary-color)] text-white text-base font-bold shadow-lg hover:bg-opacity-90 transition-all duration-300" type="submit">Submit</button>
+</div>
+</form>
+<div class="success-message text-center py-10" id="success-message">
+<div class="flex items-center justify-center mx-auto w-20 h-20 rounded-full bg-green-500/20 mb-4">
+<span class="material-symbols-outlined text-5xl text-green-500">done</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-2">Thank you!</h3>
+<p class="text-gray-400">Your quote request has been sent successfully. We will get back to you shortly.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    const openModalButton = document.getElementById('open-modal-button');
+    const closeModalButton = document.getElementById('close-modal-button');
+    const cancelModalButton = document.getElementById('cancel-modal-button');
+    const modal = document.getElementById('quote-modal');
+    const modalContent = document.getElementById('modal-content');
+    const body = document.body;
+    const quoteForm = document.getElementById('quote-form');
+    const successMessage = document.getElementById('success-message');
+    function openModal() {
+        modal.classList.add('is-open');
+        body.classList.add('modal-open');
+        setTimeout(() => {
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }, 10);
+    }
+    function closeModal() {
+        modalContent.classList.remove('scale-100');
+        modalContent.classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.remove('is-open');
+            body.classList.remove('modal-open');
+            // Reset form for next time
+            quoteForm.style.display = 'block';
+            successMessage.style.display = 'none';
+        }, 300);
+    }
+    openModalButton.addEventListener('click', openModal);
+    closeModalButton.addEventListener('click', closeModal);
+    cancelModalButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+    quoteForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        let isValid = true;
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const comments = document.getElementById('comments');
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const phoneError = document.getElementById('phone-error');
+        const commentsError = document.getElementById('comments-error');
+        // Reset errors
+        nameError.classList.add('hidden');
+        emailError.classList.add('hidden');
+        phoneError.classList.add('hidden');
+        commentsError.classList.add('hidden');
+        name.classList.remove('border-red-500');
+        email.classList.remove('border-red-500');
+        phone.classList.remove('border-red-500');
+        comments.classList.remove('border-red-500');
+        if (name.value.trim() === '') {
+            nameError.classList.remove('hidden');
+            name.classList.add('border-red-500');
+            isValid = false;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value)) {
+            emailError.classList.remove('hidden');
+            email.classList.add('border-red-500');
+            isValid = false;
+        }
+        if (phone.value.trim() === '') {
+            phoneError.classList.remove('hidden');
+            phone.classList.add('border-red-500');
+            isValid = false;
+        }
+        if (comments.value.trim() === '') {
+            commentsError.classList.remove('hidden');
+            comments.classList.add('border-red-500');
+            isValid = false;
+        }
+        if (isValid) {
+            // Form is valid, you can submit it here
+            console.log('Form submitted successfully!');
+            quoteForm.style.display = 'none';
+            successMessage.style.display = 'block';
+            setTimeout(closeModal, 3000);
+        }
+    });
+</script>
+
+</body></html>
